@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+
+    <!-- Axios library for API calls -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Sign in with LiveChat SDK -->
+    <script src="//cdn.livechatinc.com/accounts/accounts-sdk.min.js"></script>
+
+    <!-- LiveChat Agent App SDK -->
+    <script src="https://unpkg.com/@livechat/agent-app-sdk@latest/dist/agentapp.umd.min.js"></script>
+
+</head>
+<body>
+
+    <!-- Sign in with LiveChat Button -->
+    <a href="" onclick="instance.openPopup()">
+        <div id="livechat-login-button" class="livechat-login-button"></div>
+    </a>
+
+    <!-- Grabs data about an authorized user -->
+    <script>
+        let access_token;
+
+        // initializes the SDK and returns the AccountsSDK object instance
+        const instance = AccountsSDK.init({
+          // replace "<your_client_id>" with the client id found in the Developers Console when you created your app
+          client_id: "1771f1ec8f7052bbfc1dbf6824f1aec3",
+
+          onIdentityFetched: (error, data) => {
+            if (data) {
+              // logs information about user being authorized to the console (optional)
+              console.log("User authorized!");
+
+              // hides the "Sign in with LiveChat" button
+              document.getElementById("livechat-login-button").style.display = "none";
+
+              // shows the form for sending a card
+              document.getElementById("livechat-widget-form").style.display = "block";
+
+              console.log("License number: " + data.license);
+
+              // sets access_token
+              access_token = data.access_token;
+
+              console.log(access_token);
+
+              // logs error in the console (optional) 
+              console.log(error);
+            }
+          }
+        });
+      </script>
+
+      <!-- Sending rich message via Agent Chat API -->
+      <script>
+          //   assign variable for URL submitted via form
+          const rmURL = document.getElementById("rmURL")[0].value;
+
+          //   assign variable for image submitted via form
+          const rmIMAGE = document.getElementById("rmIMAGE")[0].value;
+
+          //   assign variable for button text submitted via form
+          const rmBUTTON = document.getElementById("rmBUTTON")[0].value;
+
+          //   assign variable for title submitted via form
+          const rmTITLE = document.getElementById("rmTITLE")[0].value;
+
+          //   assign variable for subtitle submitted via form
+          const rmSUBTITLE = document.getElementById("rmSUBTITLE")[0].value;
+          
+          // required fields for "rich message" event, more info: https://developers.livechat.com/docs/messaging/agent-chat-api/#rich-message
+          const payload = {
+              chat_id: chat_id,
+              event: {
+                  type: "rich_message",
+                  recipients: "all",
+                  template_id: "cards",
+                  elements: [
+                      {
+                          title: rmTITLE,
+                          subtitle: rmSUBTITLE,
+                          image: {
+                              url: rmIMAGE
+                          },
+                          buttons: [
+                              {
+                                  text: rmBUTTON,
+                                  type: "webview",
+                                  value: rmURL,
+                                  webview_height: "full",
+                                  postback_id: "action_yes",
+                                  user_ids: []
+                              }
+                          ]
+                      }
+                  ]
+              }
+          }
+
+          // send POST request to LiveChat API via Axios
+          axios.post('https://api.livechatinc.com/v3.1/agent/action/send_event',
+          // send payload in the body of the request
+            payload,
+                {
+                    // required headers for the request
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + access_token
+                    }
+                }
+            )
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        
+      </script>
+
+      <script>
+          LiveChat.createDetailsWidget().then(function(widget) {
+              // output condition set when an agent opens a chat conversation
+              widget.on("customer_profile", data => {
+                  // logs customer data in the console (optional)
+                  console.log(data);
+                  // sets chat_id
+                  chat_id = data.chat.chat_id
+              })
+          })
+      </script>
+
+      <!-- Form for sending the card, which is hidden by default (until user is authorized) -->
+      <form id="livechat-widget-form" style="display:none">
+        <h2>Send link to your customer</h2>
+        Fill fields with link to your website and to your image.
+
+        <br />
+        URL
+        <br />
+
+        <input type="text" value="" name="rmURL" placeholder="URL..." />
+
+        <br />
+        Image URL
+        <br />
+        <input type="text" value="" name="rmIMAGE" placeholder="Image URL..." />
+
+        <br />
+        Title
+        <br />
+        <input type="text" value="" name="rmTITLE" placeholder="Title..." />
+
+        <br />
+        Subtitle
+        <br />
+        <input type="text" value="" name="rmSUBTITLE" placeholder="Subtitle..." />
+
+        <br />
+        Button text
+        <br />
+        <input type="text" value="" name="rmBUTTON" placeholder="Button text..." />
+
+        <br />
+
+        <!-- Button submits "rich message" data from above form to the Agent Chat API when pressed -->
+        <input type="button" onclick="richMessage()" value="Send to customer">
+      </form>
+
+</body>
+</html>
