@@ -50,7 +50,7 @@ Now we can redeploy our application by entering `firebase deploy` in our termina
 
 ![Photo #6](/LiveChatPhotos/6.png)
 
-LiveChat provides a variety of customer service options by default, which can be accessed from your LiveChat dashboard. Support agents can see how many customers are currently viewing the webpage, where those potential customers are based, and numerous details about their browser, operating system, and which pages of your site they have visited.
+LiveChat provides a variety of customer service options by default, which can be accessed from your [LiveChat dashboard](https://my.livechatinc.com/). Support agents can see how many customers are currently viewing the webpage, where those potential customers are based, and numerous details about their browser, operating system, and which pages of your site they have visited.
 
 Agents can also view and respond to customer messages, as well as create tickets to manage those responses. LiveChat also offers a robust Reports system that allows agents to track goals and sales facilitated through LiveChat, with rich metrics to help support agents learn from their customers’ behavior.
 
@@ -58,7 +58,7 @@ While these features are all available from the dashboard of each LiveChat accou
 
 ## Creating Apps and Widgets in LiveChat’s Developer Console
 
-LiveChat’s Developer Console makes it easy to build incredible apps and widgets, which can be a great addition to the service’s many default features. LiveChat provides a variety of ideas to get developers started, as well as sample apps to show what’s possible with the API. Navigate to your Developer Console to get started creating your first widget.
+LiveChat’s Developer Console makes it easy to build incredible apps and widgets, which can be a great addition to the service’s many default features. LiveChat provides a variety of ideas to get developers started, as well as sample apps to show what’s possible with the API. Navigate to your [Developer Console](https://developers.livechat.com/console/apps) to get started creating your first widget.
 
 For now, click on the “Apps” option in the sidebar, where you’ll find the option to create your very first LiveChat application. Select the “Create” option, give your app a descriptive name, and choose the template that best corresponds with your intentions as a developer.
 
@@ -78,31 +78,31 @@ Returning to our support agent dashboard, we can now navigate to the current cha
 
 ![Photo #8](/LiveChatPhotos/8.png)
  
-Ultimately, our custom widget will generate a form for support agents to create rich title cards for customers. To do that, we first need to walk our agent through an authentication process to ensure that they’re logged in. We can use LiveChat’s “Sign in with LiveChat” feature to get up and running with a simple authentication button in a relatively short number of steps.
+Ultimately, our custom widget will generate a form for support agents to create rich title cards for customers. To do that, we first need to walk our agent through an authentication process to ensure that they’re logged in. We can use LiveChat’s [“Sign in with LiveChat”](https://developers.livechat.com/docs/getting-started/authorization/sign-in-with-livechat/) feature to get up and running with a simple authentication button in a relatively short number of steps.
 
-“Sign in with LiveChat” is installed as part of LiveChat’s Software Development Kit (SDK) library, which we can install with Node Package Manager (NPM) or via Content Delivery Network (CDN) hosting. Because our Firebase project is a small, single-page application, we’ll use CDN, copying the provided `<script>` tag and pasting it inside of the `<head>` tag of each HTML file we want to feature a “Sign in with LiveChat” button. In our case, we’ll create a new HTML file called `second-page.html`, pasting the `<script>` tag inside of the new document’s `<head>` tag.
+“Sign in with LiveChat” is installed as part of LiveChat’s Software Development Kit (SDK) library, which we can install with [Node Package Manager (NPM)](https://developers.livechat.com/docs/getting-started/authorization/sign-in-with-livechat/#npm-module) or via [Content Delivery Network (CDN) hosting](https://developers.livechat.com/docs/getting-started/authorization/sign-in-with-livechat/#cdn-hosted-library). Because our Firebase project is a small, single-page application, we’ll use CDN, copying the provided `<script>` tag and pasting it inside of the `<head>` tag of each HTML file we want to feature a “Sign in with LiveChat” button. In our case, we’ll create a new HTML file called `second-page.html`, pasting the `<script>` tag inside of the new document’s `<head>` tag.
 
 ![Photo #9](/LiveChatPhotos/9.png)
 
-Next, we need to include the button itself, as well as the “Sign in with LiveChat” button container. Copy and paste the provided `<div>` tag inside the `<body>` of your code. Once you’ve finished, wrap the `<div>` tag in the provided `<a>` tag, which uses JavaScript DOM manipulation to open a pop up window with each click from a user.
+Next, we need to include the button itself, as well as the [“Sign in with LiveChat” button container](https://developers.livechat.com/docs/getting-started/authorization/sign-in-with-livechat/#step-3-prepare-button-container). Copy and paste the provided `<div>` tag inside the `<body>` of your code. Once you’ve finished, wrap the `<div>` tag in the provided `<a>` tag, which uses JavaScript DOM manipulation to open a pop up window with each click from a user.
 
 ![Photo #10](/LiveChatPhotos/10.png)
 
-Now we need to give our button the correct functionality. Following the next step in the documentation, we need to initialize the SDK in our Firebase application. We can copy and paste the provided `<script>` tag into the `<body>` of our code.
+Now we need to give our button the correct functionality. Following the next step in the documentation, we need to [initialize the SDK](https://developers.livechat.com/docs/getting-started/authorization/sign-in-with-livechat/#step-4-initialize-the-sdk) in our Firebase application. We can copy and paste the provided `<script>` tag into the `<body>` of our code.
 
 We can now use JavaScript DOM manipulation to hide our “Sign in with LiveChat” button and replace it with the LiveChat widget form. Be sure to replace `"<your_client_id>"` with the client id unique to your app, which can be found in the Authorization section of your Developers Console. Also, don’t forget to set your `access_token` variable to the incoming `data.access_token` from LiveChat.
 
 ![Photo #11](/LiveChatPhotos/11.png)
 
-With our authorization correctly set up, we want to use the Agent Chat API’s web reference to send data submitted through our widget back to the LiveChat API. To do this, we need to create another `<script>` tag, grabbing values submitted to the LiveChat form and assigning them to keys within our `payload` object.
+With our authorization correctly set up, we want to use the Agent Chat API’s [web reference](https://developers.livechat.com/docs/messaging/agent-chat-api/) to send data submitted through our widget back to the LiveChat API. To do this, we need to create another `<script>` tag, grabbing values submitted to the LiveChat form and assigning them to keys within our `payload` object.
 
-We can then make a POST request to our API that includes our `payload` data. For this example, we’ll be using the Axios library, but feel free to use another HTTP client if you prefer. To use the CDN hosted version of Axios, we will include its `<script>` tag inside of the `<head>` of our file.
+We can then make a POST request to our API that includes our `payload` data. For this example, we’ll be using the [Axios library](https://www.npmjs.com/package/axios), but feel free to use another HTTP client if you prefer. To use the CDN hosted version of Axios, we will include its `<script>` tag inside of the `<head>` of our file.
 
-More details on POST request endpoints are available in the Web API Methods documentation.
+More details on POST request endpoints are available in the [Web API Methods documentation](https://developers.livechat.com/docs/messaging/agent-chat-api/#methods).
 
 ![Photo #12](/LiveChatPhotos/12.png)
 
-Now we need to use our client id to determine which user will receive our response, and stylize the response for our chat window. Moving to the Agent App SDK documentation, we find two ways to include the Agent App SDK in our project: Node Package Manager (NPM) or Universal Model Definition (UMD) build.
+Now we need to use our client id to determine which user will receive our response, and stylize the response for our chat window. Moving to the [Agent App SDK documentation](https://developers.livechat.com/docs/extending-agent-app/agent-app-sdk/#installing-the-sdk), we find two ways to include the Agent App SDK in our project: Node Package Manager (NPM) or Universal Model Definition (UMD) build.
 
 Since we’re building a relatively simple, single-page Firebase application, we can copy the UMD option and paste it inside of the `<head>` tag in our `second-page.html` file.
 
@@ -122,11 +122,13 @@ To make this `second-page.html` form show up in our widget, we need to return to
 
 ![Photo #16](/LiveChatPhotos/16.png)
 
-Support agents should now be able to use the widget to send a stylized link to customers with the submission form. While it doesn’t have any validation or styling, this example shows the basic components of each LiveChat widget. For more on LiveChat’s design system, be sure to check out the full documentation.
+Support agents should now be able to use the widget to send a stylized link to customers with the submission form. While it doesn’t have any validation or styling, this example shows the basic components of each LiveChat widget.
+
+For more on LiveChat’s design system, be sure to check out the [full documentation](https://developers.livechat.com/docs/design-system/).
 
 ## Monetizing Your Apps
 
-In addition to creating your own custom apps and widgets, you can also monetize these components directly within the LiveChat ecosystem. Apps are bought and sold through the LiveChat Marketplace, which can be found in the LiveChat agent menu and is accessible to anyone with a LiveChat account. With apps from MailChimp, Shopify, Slack, and many others, the LiveChat Marketplace already offers countless solutions to problems that support agents face every day.
+In addition to creating your own custom apps and widgets, you can also monetize these components directly within the LiveChat ecosystem. Apps are bought and sold through the LiveChat Marketplace, which can be found in the [LiveChat agent menu](https://my.livechatinc.com/marketplace/) and is accessible to anyone with a LiveChat account. With apps from MailChimp, Shopify, Slack, and many others, the LiveChat Marketplace already offers countless solutions to problems that support agents face every day.
 
 While you can rely on preexisting applications in the LiveChat Marketplace, it’s also important to understand how to submit your own apps to be considered for monetization. To start the submission process, navigate to the Developer Console, select the app you wish to monetize, and within its “Building Blocks” menu option, choose the “App Monetization” option and click “Get started.”
 
@@ -136,6 +138,6 @@ Here we’re presented with a variety of choices about how to price our app. We 
 
 To publish your app in the LiveChat Marketplace, scroll down to the bottom of the menu and select the “Publish on Marketplace” option. There, we can fill out the remaining details necessary to submit our app to the LiveChat review team. Once submitted, a representative from LiveChat will review your app to ensure that it complies with our standards.
 
-LiveChat encourages developers to test their apps before this submission, and to provide thorough documentation and tutorials for others looking to use their application. The company provides its own design system to help developers match the look and feel of a native LiveChat application, but the design system isn’t required as part of the LiveChat review process.
+LiveChat encourages developers to test their apps before this submission, and to provide thorough documentation and tutorials for others looking to use their application. The company provides its own [design system](https://developers.livechat.com/docs/design-system/) to help developers match the look and feel of a native LiveChat application, but the design system isn’t required as part of the LiveChat review process.
 
 It’s worth noting that LiveChat takes a small percentage of earnings made through its app sales. App creators earn 80 percent of the revenue for every application sold, while LiveChat earns 20 percent of the income made from each purchase. This allows LiveChat to continue to provide outstanding customer service to each of its clients while 
