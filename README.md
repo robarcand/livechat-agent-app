@@ -8,7 +8,7 @@ Consider this your first step in an exciting journey through the LiveChat ecosys
 
 Setting up a LiveChat app requires developers to create an account with LiveChat, as well as a Developer Console account using their LiveChat login details. Navigate to the [LiveChat signup page](https://accounts.livechat.com/signup) and enter your name and details to get started with a new account.
 
-From there, we are prompted to install LiveChat via WooCommerce, Google Tag Manager, WordPress, and Shopify, among numerous other 3rd-party plugins. For this guide, we will be using Google’s Firebase platform to get up and running fairly quickly with a basic application and will install LiveChat manually, but feel free to use whatever option fits your needs.
+From there, we are prompted to install LiveChat via WooCommerce, Google Tag Manager, WordPress, and Shopify, among numerous other 3rd-party plugins. For this guide, we will be using Google’s [Firebase platform](https://firebase.google.com/) to get up and running fairly quickly with a basic application and will install LiveChat manually, but feel free to use whatever option fits your needs.
 
 ![Photo #1](/LiveChatPhotos/1.png)
 
