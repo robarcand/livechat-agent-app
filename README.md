@@ -108,7 +108,7 @@ Since we’re building a relatively simple single-page Firebase application, we 
 
 ![Photo #13](/LiveChatPhotos/13.png)
 
-Additionally, we also need to create a function that listens for changes to our widget and updates the `chat_id` to reflect the input data. We can use the `.createDetailsWidget()` method provided by the Agent App SDK, passing the widget in as a parameter and modifying the `”customer_profile”` in accordance with our data.
+Additionally, we also need to create a function that listens for changes to our widget and updates the `chat_id` to reflect the input data. We can use the `.createDetailsWidget()` method provided by the Agent App SDK, passing the widget in as a parameter and modifying the `“customer_profile”` in accordance with our data.
 
 ![Photo #14](/LiveChatPhotos/14.png)
 
