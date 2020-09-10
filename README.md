@@ -6,13 +6,13 @@ Consider this your first step in an exciting journey through the LiveChat ecosys
 
 ## Getting Started
 
-Setting up a LiveChat app requires developers to create an account with LiveChat, as well as a Developer Console account using their LiveChat login details. Navigate to the LiveChat account sign page and enter your name and details to get started with a new account.
+Setting up a LiveChat app requires developers to create an account with LiveChat, as well as a Developer Console account using their LiveChat login details. Navigate to the [LiveChat signup page](https://accounts.livechat.com/signup) and enter your name and details to get started with a new account.
 
 From there, we are prompted to install LiveChat via WooCommerce, Google Tag Manager, WordPress, and Shopify, among numerous other 3rd-party plugins. For this guide, we will be using Google’s Firebase platform to get up and running fairly quickly with a basic application and will install LiveChat manually, but feel free to use whatever option fits your needs.
 
 ![Photo #1](/LiveChatPhotos/1.png)
 
-Using Firebase also requires a Firebase account, which developers can sign up for on the Firebase website. Once signed in, select the option to create a new project. Enter a descriptive name for your application and press the submit button. Firebase will then walk you through the setup process, asking if you want to use Google Analytics with your new app.
+Using Firebase also requires a Firebase account, which developers can sign up for on the [Firebase website](https://firebase.google.com/). Once signed in, select the option to create a new project. Enter a descriptive name for your application and press the submit button. Firebase will then walk you through the setup process, asking if you want to use Google Analytics with your new app.
 
 For simplicity’s sake, we won’t be using analytics in this demonstration. Upon clicking continue, Firebase returns us to their Project Overview page, where we can integrate the service with our application.
 
