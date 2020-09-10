@@ -10,7 +10,7 @@ Setting up a LiveChat app requires developers to create an account with LiveChat
 
 From there, we are prompted to install LiveChat via WooCommerce, Google Tag Manager, WordPress, and Shopify, among numerous other 3rd-party plugins. For this guide, we will be using Google’s Firebase platform to get up and running fairly quickly with a basic application and will install LiveChat manually, but feel free to use whatever option fits your needs.
 
-[Photo #1](/LiveChatImages/1.png)
+![Photo #1](/LiveChatPhotos/1.png)
 
 Using Firebase also requires a Firebase account, which developers can sign up for on the Firebase website. Once signed in, select the option to create a new project. Enter a descriptive name for your application and press the submit button. Firebase will then walk you through the setup process, asking if you want to use Google Analytics with your new app.
 
