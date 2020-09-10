@@ -142,8 +142,8 @@ LiveChat encourages developers to test their apps before this submission, and to
 
 It’s worth noting that LiveChat takes a small percentage of earnings made through its app sales. App creators earn 80 percent of the revenue for every application sold, while LiveChat earns 20 percent of this income. This allows LiveChat to continue to create products of the highest quality while still allowing creators the option to make money from their applications. For a more detailed overview of the LiveChat monetization process, see the [“How to Monetize Apps”](https://developers.livechat.com/docs/monetization/how-to-monetize-apps/) portion of our documentation.
 
-And that's it! You now understand the basics of how to create a LiveChat agent app, how to build custom widgets for use within that app, and how to monetize your app through the LiveChat Marketplace. There's so much you can do within the LiveChat ecosystem, and we encourage you to have fun experimenting with each of these technologies.
+And that's it! You now understand createing a LiveChat agent app, building custom widgets for use within that app, monetizing the app through the LiveChat Marketplace. There's so much you can do within the LiveChat ecosystem, and we encourage you to have fun experimenting with each of these technologies.
 
-If you run into any issues (and can't find what you're looking for in [our documentation](https://developers.livechat.com/docs/)), feel free to contact us at [developers@livechatinc.com](mailto:developers@livechatinc.com). Best of luck and happy coding!
+If you run into any issues (and can't find what you're looking for in [our documentation](https://developers.livechat.com/docs/)), feel free to contact us at [developers@livechatinc.com](mailto:developers@livechatinc.com). Good luck and happy coding!
 
 
